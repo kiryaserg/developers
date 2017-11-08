@@ -137,4 +137,6 @@ class DeveloperTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse( $developer->can_add_task(), 'We reached maximum');
 
     }
+    
+    
 }
