@@ -38,9 +38,9 @@ class Team
      */
     public function __construct()
     {
-        $this->seniors      = [new Senior('Олег'), new Senior('Оксана')];
+        $this->seniors      = [new SeniorDeveloper('Олег'), new SeniorDeveloper('Оксана')];
         $this->developers   = [new Developer('Олеся'), new Developer('Василий'), new Developer('Оля')];
-        $this->juniors      = [new Junior('Владислава'), new Junior('Аркадий'), new Junior('Игорь')];
+        $this->juniors      = [new JuniorDeveloper('Владислава'), new JuniorDeveloper('Аркадий'), new JuniorDeveloper('Игорь')];
         $this->team         = array_merge($this->juniors, $this->developers, $this->seniors);
         $this->complexities = ['junior'    => $this->juniors,
                                'developer' => $this->developers,

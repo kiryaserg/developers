@@ -6,7 +6,7 @@
  * Time: 16:50
  */
 
-use DevelopersBundle\Senior;
+use DevelopersBundle\SeniorDeveloper;
 
 /**
  * Class DeveloperTest
@@ -19,7 +19,7 @@ class SeniorDeveloperTest extends \PHPUnit_Framework_TestCase
      */
     public function testMaximumTasks()
     {
-        $developer = new Senior('Test Name');
+        $developer = new SeniorDeveloper('Test Name');
         $task = str_repeat('1',200);
         for($i=1;$i<15;$i++){
              $developer->add_task($task);
@@ -39,7 +39,7 @@ class SeniorDeveloperTest extends \PHPUnit_Framework_TestCase
         $name = 'Test Name';
         $task1 = 'Task 1';
         $task2 = 'Task 2';
-        $developer = new Senior($name);
+        $developer = new SeniorDeveloper($name);
         $developer->add_task('Task 1');
         $developer->add_task('Task 2');
         $work = sprintf("%s: Выполнена задача \"%s\". Осталось задач 1\n%s: Выполнена задача \"%s\". Осталось задач 0", $name, $task1, $name, $task2);
@@ -62,7 +62,7 @@ class SeniorDeveloperTest extends \PHPUnit_Framework_TestCase
     {
         $name = 'Test Name';
         $task1 = 'Task 1';
-        $developer = new Senior($name);
+        $developer = new SeniorDeveloper($name);
         $developer->add_task('Task 1');
         $work = sprintf("%s: Выполнена задача \"%s\". Осталось задач 0", $name, $task1);
         $procrastination = 'Что то лень';

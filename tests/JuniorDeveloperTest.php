@@ -6,7 +6,7 @@
  * Time: 16:50
  */
 
-use DevelopersBundle\Junior;
+use DevelopersBundle\JuniorDeveloper;
 
 /**
  * Class DeveloperTest
@@ -20,7 +20,7 @@ class JuniorDeveloperTest extends \PHPUnit_Framework_TestCase
     public function testAddTaskThrowsException()
     {
         $this->expectExceptionMessage('Слишком сложно!');
-        $developer = new Junior('Test Name');
+        $developer = new JuniorDeveloper('Test Name');
         $developer->add_task(str_repeat('1',21));
     }
     
@@ -29,7 +29,7 @@ class JuniorDeveloperTest extends \PHPUnit_Framework_TestCase
      */
     public function testMaximumTasks()
     {
-        $developer = new Junior('Test Name');
+        $developer = new JuniorDeveloper('Test Name');
         $task = str_repeat('1',20);
         for($i=1;$i<5;$i++){
              $developer->add_task($task);
@@ -48,7 +48,7 @@ class JuniorDeveloperTest extends \PHPUnit_Framework_TestCase
     {
         $name = 'Test Name';
         $task = 'Task';
-        $developer = new Junior($name);
+        $developer = new JuniorDeveloper($name);
 
         $this->assertEquals(sprintf('%s: Добавлена задача "%s" Всего в списке задач 1', $name, $task),  $developer->add_task($task));
         $this->assertEquals(sprintf('%s: Добавлена задача "%s" Всего в списке задач 2', $name, $task),  $developer->add_task($task));
@@ -63,7 +63,7 @@ class JuniorDeveloperTest extends \PHPUnit_Framework_TestCase
         $name = 'Test Name';
         $task1 = 'Task 1';
         $task2 = 'Task 2';
-        $developer = new Junior($name);
+        $developer = new JuniorDeveloper($name);
         $developer->add_task('Task 1');
         $developer->add_task('Task 2');
 
