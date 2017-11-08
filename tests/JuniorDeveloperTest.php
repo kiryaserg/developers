@@ -40,6 +40,20 @@ class JuniorDeveloperTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('занят', $developer->status());
     }
+
+    /**
+     *
+     */
+    public function testAddTaskReturnsText()
+    {
+        $name = 'Test Name';
+        $task = 'Task';
+        $developer = new Junior($name);
+
+        $this->assertEquals(sprintf('%s: Добавлена задача "%s" Всего в списке задач 1', $name, $task),  $developer->add_task($task));
+        $this->assertEquals(sprintf('%s: Добавлена задача "%s" Всего в списке задач 2', $name, $task),  $developer->add_task($task));
+
+    }
     
     /**
      *

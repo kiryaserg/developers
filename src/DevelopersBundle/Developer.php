@@ -14,6 +14,12 @@ namespace DevelopersBundle;
  * @author kiryaserg
  */
 class Developer extends AbstractDeveloper{
+    /**
+     *
+     */
     const TYPE = 'developer';
+    /**
+     *
+     */
     const MAX_TASKS = 10;
 }

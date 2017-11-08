@@ -8,8 +8,7 @@
 
 namespace DevelopersBundle;
 
-use DevelopersBundle\Exceptions\InsuficientWorkException;
-use DevelopersBundle\Exceptions\TooMuchWorkException;
+use DevelopersBundle\Exceptions\DeveloperException;
 
 interface DeveloperInterface
 {
@@ -30,14 +29,14 @@ interface DeveloperInterface
 
     /**
      * @param string $task
-     * @throws TooMuchWorkException
+     * @throws DeveloperException
      * @return string
      */
     public function add_task($task);
 
     /**
      * @return string
-     * @throws InsuficientWorkException
+     * @throws DeveloperException
      */
     public function work();
 
@@ -60,5 +59,20 @@ interface DeveloperInterface
      * @return mixed
      */
     public function tasks();
+
+    /**
+     * @return int
+     */
+    public function count_tasks();
+
+    /**
+     * @return string
+     */
+    public function type();
+
+    /**
+     * @return string
+     */
+    public function name();
 
 }

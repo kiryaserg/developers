@@ -8,6 +8,7 @@
 
 namespace DevelopersBundle;
 
+use DevelopersBundle\Exceptions\DeveloperException;
 use DevelopersBundle\Exceptions\InsuficientWorkException;
 use DevelopersBundle\Exceptions\TooMuchWorkException;
 
@@ -18,6 +19,9 @@ use DevelopersBundle\Exceptions\TooMuchWorkException;
  */
 abstract class AbstractDeveloper implements DeveloperInterface
 {
+    /**
+     *
+     */
     const WORK_MESSAGE_TEMPLATE = '%s: Выполнена задача "%s". Осталось задач %d';
     /**
      * @var string
@@ -42,12 +46,12 @@ abstract class AbstractDeveloper implements DeveloperInterface
     /**
      * @param string $task
      * @return string
-     * @throws TooMuchWorkException
+     * @throws DeveloperException
      */
     public function add_task($task)
     {
         if (!$this->can_add_task()) {
-            throw new TooMuchWorkException();
+            throw new DeveloperException('Слишком много работы!');
         }
 
         $this->tasks->enqueue($task);
@@ -61,7 +65,7 @@ abstract class AbstractDeveloper implements DeveloperInterface
     public function work()
     {
         if (!$this->can_work()) {
-            throw new InsuficientWorkException();
+            throw new DeveloperException('Нечего делать!');
         }
 
         $task = $this->tasks->dequeue();
@@ -110,16 +114,25 @@ abstract class AbstractDeveloper implements DeveloperInterface
            printf("%d %s\n", $key, $value);
        }
     }
-    
+
+    /**
+     * @return int
+     */
     public function count_tasks()
     {
         return count($this->tasks);
     }
-    
+
+    /**
+     * @return string
+     */
     public function type(){
         return static::TYPE;
     }
-    
+
+    /**
+     * @return string
+     */
     public function name(){
         return $this->name;
     }

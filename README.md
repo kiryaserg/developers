@@ -1,8 +1,14 @@
 testapp
 ========
 
-1. Install an application via composer:  
+1. Install dependencies via composer
 
 `
 composer install
 `
+2. run tests
+
+`
+vendor/bin/phpunit
+`
+ 

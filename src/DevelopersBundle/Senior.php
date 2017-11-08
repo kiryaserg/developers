@@ -15,7 +15,13 @@ namespace DevelopersBundle;
  */
 class Senior extends AbstractDeveloper {
 
+    /**
+     *
+     */
     const TYPE = 'senior';
+    /**
+     *
+     */
     const MAX_TASKS = 15;
     
     /**
@@ -24,10 +30,9 @@ class Senior extends AbstractDeveloper {
     public function work()
     {
         if(rand(0,1)){
-            return parent::work().($this->can_work()?("\n".parent::work()):''); 
+            return sprintf("%s%s", parent::work(),$this->can_work()?("\n".parent::work()):'');
         }
         
         return 'Что то лень';
-        
     }
 }
